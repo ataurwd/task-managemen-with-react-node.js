@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie'; // Import js-cookie
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -20,8 +21,11 @@ const Login = () => {
       const user = users.find(user => user.email === email && user.password === password);
 
       if (user) {
+        // Save user data in cookies (you can store specific data like email, name, etc.)
+        Cookies.set('user', JSON.stringify(user), { expires: 7 }); // The cookie will expire in 7 days
+
         // Redirect to home page if the user is found
-        navigate('/'); // Change '/home' to your desi
+        navigate('/dashboard'); // Change '/home' to your desired route
       } else {
         // Show error if credentials do not match
         setError('Invalid email or password');

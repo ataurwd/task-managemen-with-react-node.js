@@ -1,16 +1,26 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Registration from "../components/Registration";
 import Login from "../components/login";
-import Home from './../components/Home';
+import Home from "../components/Home";
+import ProtectedRoute from "../components/ProtectedRoute";
+import Dashboard from "../components/Dashboard";
 
 const Router = () => {
   return (
     <div>
       <Routes>
-              {/* Route for the Login page */}
-              <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        {/* Protect the Home route */}
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Route for the Login page */}
+        <Route path="/" element={<Login />} />
 
         {/* Route for the Register page */}
         <Route path="/register" element={<Registration />} />
