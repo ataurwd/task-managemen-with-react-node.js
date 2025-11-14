@@ -21,7 +21,7 @@ const Login = () => {
 
       if (user) {
         // Redirect to home page if the user is found
-        navigate('/'); // Change '/home' to your desired route
+        navigate('/'); // Change '/home' to your desi
       } else {
         // Show error if credentials do not match
         setError('Invalid email or password');
