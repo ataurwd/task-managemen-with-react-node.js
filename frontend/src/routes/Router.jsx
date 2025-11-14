@@ -1,9 +1,10 @@
 import { Route, Routes } from "react-router-dom";
 import Registration from "../components/Registration";
-import Login from "../components/login";
 import Home from "../components/Home";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Dashboard from "../components/Dashboard";
+import Login from "../components/Login";
+import AddTask from "../components/dashboard/AddTask";
 
 const Router = () => {
   return (
@@ -15,6 +16,15 @@ const Router = () => {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+
+            <Route
+          path="/add-task"
+          element={
+            <ProtectedRoute>
+              <AddTask />
             </ProtectedRoute>
           }
         />

@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children }) => {
   // If no user data is found in cookies, redirect to login page with alert
   if (!user.email) {
     alert("You must be logged in to access this page.");
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/" replace />;
   }
 
   // If user is logged in, render the protected content (children)

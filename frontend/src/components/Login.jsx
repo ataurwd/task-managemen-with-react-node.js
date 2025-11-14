@@ -23,6 +23,7 @@ const Login = () => {
       if (user) {
         // Save user data in cookies (you can store specific data like email, name, etc.)
         Cookies.set('user', JSON.stringify(user), { expires: 7 }); // The cookie will expire in 7 days
+        Cookies.set('email', email, { expires: 7 });  // Store email separately
 
         // Redirect to home page if the user is found
         navigate('/dashboard'); // Change '/home' to your desired route
